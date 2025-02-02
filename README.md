@@ -60,7 +60,7 @@ Before you begin, make sure you have the following:
 
 3. **Set up environment variables:**
 
-    The bot requires your Steam credentials and API key to function. Set up your environment variables (you can also use a `.env` file for better security).
+    The bot requires your Steam credentials and API key to function. Set up your environment variables (you can also use a `.env` file for better security) or use `EchoNet.py`.
 
     ```bash
     export STEAM_API_KEY="your_steam_api_key"
@@ -84,7 +84,7 @@ Fedora:
 
 ## Configuration
 
-The bot's configuration is simple and can be adjusted directly through the `GUI`. The settings include:
+The configuration for the bot is simple and stored in the `EchoNet.py` file. Edit this file to adjust settings such as:
 
 - **API Key**: Your Steam API key.
 - **Comment interval**: Set the number of hours between each comment post.
