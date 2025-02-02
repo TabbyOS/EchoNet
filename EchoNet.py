@@ -6,7 +6,7 @@ import tkinter as tk
 from threading import Thread
 from datetime import datetime
 
-# Steam API Einstellungen
+# Steam API settings
 STEAM_API_KEY = "92A7436F7C65CD4748287771D74452A2"
 STEAM_USER_ID = "76561199177046862"
 SESSION_ID = "38208f2a9761f1208544d865"  # Deine Session ID hier einfügen
@@ -14,7 +14,7 @@ COOKIE = "sessionid=38208f2a9761f1208544d865; steamCountry=DE%7Cbcca10e621b32d39
 COMMENT_INTERVAL = 120  # 2 Minuten in Sekunden
 COMMENT_LIMIT = 10  # Maximal 10 Kommentare pro Tag
 
-# Freundliche Kommentar-Datenbank
+# Friendly comment database
 COMMENTS = [
     "May every day of yours be like a blooming flower, filled with beauty and love 💗",
     "You're a star that shines brightly even on the darkest nights! ✨🌙",
@@ -49,11 +49,11 @@ COMMENTS = [
     "Wishing you a day filled with love, laughter, and all things wonderful! 🎀💗"
 ]
 
-# Variablen für Zähler und Datum
+# Variables for counter and date
 comment_count = 0
 last_reset_date = datetime.now().date()
 
-# Steam API Anfrage für Freundesliste
+# Steam API request for friend list
 def get_friends():
     url = f"https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key={STEAM_API_KEY}&steamid={STEAM_USER_ID}&relationship=friend"
     response = requests.get(url)
@@ -62,7 +62,7 @@ def get_friends():
         return [friend["steamid"] for friend in friends]
     return []
 
-# Kommentar unter Profil posten
+# Post a comment on a profile
 def post_comment(steam_id, comment):
     global comment_count
     url = f"https://steamcommunity.com/comment/Profile/post/{steam_id}/-1/"
@@ -82,7 +82,7 @@ def post_comment(steam_id, comment):
     else:
         print(f"[FEHLER] Kommentar konnte nicht gepostet werden: {response.status_code}")
 
-# Zähler zurücksetzen, wenn ein neuer Tag beginnt
+# Reset the counter if a new day begins
 def reset_counter_if_new_day():
     global comment_count, last_reset_date
     current_date = datetime.now().date()
@@ -91,10 +91,10 @@ def reset_counter_if_new_day():
         last_reset_date = current_date
         print("[INFO] Zähler zurückgesetzt für den neuen Tag.")
 
-# Hauptfunktion zum Kommentieren
+# Main commenting function
 def comment_loop():
     while True:
-        reset_counter_if_new_day()  # Zähler zurücksetzen, falls neuer Tag
+        reset_counter_if_new_day()  # Reset counter if a new day
         if comment_count < COMMENT_LIMIT:
             friends = get_friends()
             if not friends:
@@ -108,15 +108,15 @@ def comment_loop():
                 time.sleep(COMMENT_INTERVAL)
         else:
             print("[INFO] Maximale Kommentaranzahl für den Tag erreicht.")
-            time.sleep(3600)  # 1 Stunde warten, bevor der Bot den nächsten Tag versucht
+            time.sleep(3600)  # Wait 1 hour before trying again the next day
 
-# GUI-Funktion
+# GUI function
 def start_bot():
     thread = Thread(target=comment_loop, daemon=True)
     thread.start()
     status_label.config(text="Bot läuft...")
 
-# GUI-Setup
+# GUI setup
 root = tk.Tk()
 root.title("Steam Kommentar Bot")
 root.geometry("300x200")
