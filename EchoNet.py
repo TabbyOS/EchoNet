@@ -9,10 +9,10 @@ from datetime import datetime
 # Steam API settings
 STEAM_API_KEY = "92A7436F7C65CD4748287771D74452A2"
 STEAM_USER_ID = "76561199177046862"
-SESSION_ID = "38208f2a9761f1208544d865"  # Deine Session ID hier einfügen
-COOKIE = "sessionid=38208f2a9761f1208544d865; steamCountry=DE%7Cbcca10e621b32d39f59f14d491c63a25"  # Dein Cookie hier einfügen
-COMMENT_INTERVAL = 120  # 2 Minuten in Sekunden
-COMMENT_LIMIT = 10  # Maximal 10 Kommentare pro Tag
+SESSION_ID = "38208f2a9761f1208544d865"  # Insert your session ID here
+COOKIE = "sessionid=38208f2a9761f1208544d865; steamCountry=DE%7Cbcca10e621b32d39f59f14d491c63a25"  # Insert your cookie here
+COMMENT_INTERVAL = 120  # 2 minutes in seconds
+COMMENT_LIMIT = 10  # Maximum 10 comments per day
 
 # Friendly comment database
 COMMENTS = [
