@@ -15,7 +15,7 @@ A real-time Steam comment Bot powered by GPT integration that interacts with you
 
 ## Introduction
 
-The EchoNet-Bot is an automated system that leaves cheerful, random comments on your Steam friends' profiles every 3 hours. It uses the GPT model for natural language generation and works exclusively on Linux (Fedora etc...). The bot automatically fetches your Steam friends via the Steam API and interacts with them in a friendly and positive manner.
+The EchoNet-Bot is an automated system that leaves cheerful, random comments on your Steam friends' profiles every 3 hours. It uses the GPT model for natural language generation and works exclusively on Linux (Fedora/Debian etc...). The bot automatically fetches your Steam friends via the Steam API and interacts with them in a friendly and positive manner.
 
 ## Features
 
